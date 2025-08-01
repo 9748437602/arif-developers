@@ -63,16 +63,16 @@
         .logo {
             height: 50px;
             width: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
-            animation: pulse 2s infinite;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
 
         .logo-text {
@@ -194,7 +194,6 @@
             width: 40%;
             max-width: 600px;
             height: 70%;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             animation: float 6s ease-in-out infinite;
@@ -202,9 +201,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
         }
 
         /* Section Styles */
@@ -287,16 +290,19 @@
         .about-image {
             flex: 1;
             height: 500px;
-            background: linear-gradient(45deg, var(--accent), #ff9e7d);
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            overflow: hidden;
             animation: fadeInRight 1s ease-out;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Portfolio Section */
@@ -335,13 +341,21 @@
 
         .portfolio-img {
             height: 250px;
-            background: linear-gradient(45deg, var(--primary), #3b82f6);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
         }
 
         .portfolio-info {
@@ -542,18 +556,6 @@
             }
         }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-            }
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
@@ -628,7 +630,9 @@
     <!-- Header with Logo -->
     <header id="header">
         <div class="logo-container">
-            <div class="logo">AM</div>
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Portfolio Logo">
+            </div>
             <div class="logo-text">AlexMorgan</div>
         </div>
         <nav>
@@ -652,7 +656,7 @@
             <a href="#portfolio" class="cta-btn">View My Work</a>
         </div>
         <div class="hero-image">
-            Portfolio Showcase
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Developer working">
         </div>
     </section>
 
@@ -678,7 +682,7 @@
                 </div>
             </div>
             <div class="about-image">
-                Developer Profile
+                <img src="https://images.unsplash.com/photo-1580894908361-967195033215?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Developer profile">
             </div>
         </div>
     </section>
@@ -690,7 +694,9 @@
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background:linear-gradient(45deg, #8b5cf6, #ec4899);">E-commerce Platform</div>
+                <div class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Platform">
+                </div>
                 <div class="portfolio-info">
                     <h3>Modern E-commerce Solution</h3>
                     <p>A full-featured online store with cart functionality, user authentication, and payment processing.</p>
@@ -702,7 +708,9 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background:linear-gradient(45deg, #0ea5e9, #06b6d4);">Travel App</div>
+                <div class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Travel App">
+                </div>
                 <div class="portfolio-info">
                     <h3>Adventure Travel Planner</h3>
                     <p>An interactive travel application that helps users discover and plan their next adventure.</p>
@@ -714,7 +722,9 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background:linear-gradient(45deg, #f59e0b, #ef4444);">Fitness Tracker</div>
+                <div class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fitness Tracker">
+                </div>
                 <div class="portfolio-info">
                     <h3>Health & Fitness Dashboard</h3>
                     <p>A comprehensive fitness tracking platform with workout planning and progress visualization.</p>
@@ -726,7 +736,9 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background:linear-gradient(45deg, #10b981, #3b82f6);">Finance Dashboard</div>
+                <div class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1011&q=80" alt="Finance Dashboard">
+                </div>
                 <div class="portfolio-info">
                     <h3>Personal Finance Manager</h3>
                     <p>A secure financial dashboard for tracking expenses, investments, and budgeting goals.</p>
@@ -738,7 +750,9 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background:linear-gradient(45deg, #6366f1, #8b5cf6);">Task Management</div>
+                <div class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Task Management">
+                </div>
                 <div class="portfolio-info">
                     <h3>Productivity Suite</h3>
                     <p>A Kanban-style task management system with team collaboration features and real-time updates.</p>
@@ -750,7 +764,9 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background:linear-gradient(45deg, #ec4899, #f97316);">Restaurant Booking</div>
+                <div class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Restaurant Booking">
+                </div>
                 <div class="portfolio-info">
                     <h3>Restaurant Reservation System</h3>
                     <p>An intuitive platform for customers to discover, book, and review local restaurants.</p>
