@@ -702,11 +702,107 @@
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Developer working">
         </div>
     </section>
+    <!-- OUR PARTNERS SECTION -->
+<h2 style="text-align:center; margin-top:40px;">Our Partners</h2>
 
-    <!-- About Section -->
+<div class="partner-slider">
+  <div class="partner-track">
+    <!-- 15 logo x 2 (for infinite scroll) -->
+    <div class="partner-logo"><img src="images/logo.png" alt="GPay"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="PhonePe"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="BharatPe"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Paytm"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Amazon Pay"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Razorpay"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="PhonePe PNG"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="UPI"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="MobiKwik"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Freecharge"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Cashfree"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="SBI"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="ICICI"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="HDFC"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Airtel"></div>
+
+    <!-- repeat same logos again -->
+    <div class="partner-logo"><img src="images/logo.png" alt="GPay"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="PhonePe"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="BharatPe"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Paytm"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Amazon Pay"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Razorpay"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="PhonePe PNG"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="UPI"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="MobiKwik"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Freecharge"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Cashfree"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="SBI"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="ICICI"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="HDFC"></div>
+    <div class="partner-logo"><img src="images/logo.png" alt="Airtel"></div>
+  </div>
+</div>
+
+<!-- CSS STYLES (add to your <style> or CSS file) -->
+<style>
+.partner-slider {
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  padding: 20px 0;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 100%;
+}
+
+.partner-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+.partner-logo {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.partner-logo img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.partner-logo img:hover {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .partner-logo {
+    width: 140px;
+  }
+}
+</style>
+  <!-- About Section -->
     <section id="about">
         <div class="section-title">
-            <h2>About Me</h2>
+            <h2>Our Services</h2>
         </div>
         <div class="about-content">
             <div class="about-text">
@@ -714,14 +810,15 @@
                 <p>I'm a frontend developer with 5 years of experience creating responsive and performant web applications. My passion lies in solving complex problems with elegant solutions that delight users.</p>
                 <p>I specialize in modern JavaScript frameworks like React and Vue.js, and I'm constantly exploring new technologies to enhance my skill set.</p>
                 <div class="skills-container">
-                    <div class="skill">HTML5</div>
-                    <div class="skill">CSS3</div>
-                    <div class="skill">JavaScript</div>
-                    <div class="skill">React</div>
-                    <div class="skill">Vue.js</div>
-                    <div class="skill">Node.js</div>
-                    <div class="skill">UI/UX Design</div>
-                    <div class="skill">Responsive Design</div>
+                    <div class="skill">AePs</div>
+                    <div class="skill">Money Transfar</div>
+                    <div class="skill">IRCTC Ticket Booking</div>
+                    <div class="skill">PanCard</div>
+                    <div class="skill">Flight Ticket Booking</div>
+                    <div class="skill">Mobile Recharge</div>
+                    <div class="skill">Sale's Fintech Products</div>
+                    <div class="skill">Merchant Onboarding</div>
+                    <div class="skill">Account Opening</div>
                 </div>
             </div>
             <div class="about-image">
