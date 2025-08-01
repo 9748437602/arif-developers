@@ -280,7 +280,7 @@
     <header id="header">
         <div class="logo-container">
             <div class="logo">
-                <img src="https://images.placeholders.dev/?width=50&height=50&text=AD" alt="Arif Developers Logo">
+                <img src="images/logo.png" alt="Arif Developers Logo">
             </div>
             <div class="logo-text">Arif Developers</div>
         </div>
@@ -290,7 +290,7 @@
             </div>
             <ul>
                 <li class="close-btn"><i class="fas fa-times"></i></li>
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#services">Our Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -298,71 +298,339 @@
         </nav>
     </header>
 
-    <!-- Content Placeholder -->
-    <div class="content-container">
-        <h1>Header & Footer Template</h1>
-        <p>This template contains the responsive header and footer from your original design. You can easily integrate these elements into any page.</p>
-        <p>Scroll down to see the footer.</p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Arif Developers. All rights reserved.</p>
-            <p>Kolkata, West Bengal</p>
-        </div>
-    </footer>
-
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.menu-btn');
-        const closeBtn = document.querySelector('.close-btn');
-        const navMenu = document.querySelector('nav ul');
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Under Maintenance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+            overflow-x: hidden;
+        }
         
-        closeBtn.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active') && 
-                !e.target.closest('nav ul') && 
-                !e.target.closest('.menu-btn')) {
-                navMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        .maintenance-container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .maintenance-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            animation: rotate 15s linear infinite;
+        }
+        
+        .icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff6b6b, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .message {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 15px;
+            padding: 20px 15px;
+            min-width: 120px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ff6b6b;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+        }
+        
+        .contact-info {
+            margin: 40px 0 30px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .contact-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #94a3b8;
+        }
+        
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: #2563eb;
+            font-size: 1.3rem;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, #2563eb, #ff6b6b);
+            border-radius: 10px;
+            position: relative;
+            animation: progress-animation 3s ease-in-out infinite alternate;
+        }
+        
+        .status {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: #2563eb;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes progress-animation {
+            0% { width: 65%; }
+            100% { width: 70%; }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 30px 20px;
             }
-        });
-    </script>
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-item {
+                min-width: 90px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px 8px;
+            }
+            
+            .countdown-number {
+                font-size: 1.6rem;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container">
+        <div class="icon">
+            <i class="fas fa-tools"></i>
+        </div>
+        
+        <h1>We'll Be Back Soon!</h1>
+        
+        <p class="message">
+            Our website is currently undergoing scheduled <span class="highlight">maintenance</span>. 
+            We're working hard to improve your experience and will be back online shortly.
+        </p>
+        
+        <div class="status">
+            <span>Maintenance Status:</span>
+            <span>65% Complete</span>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <p class="message">
+            Estimated time until completion:
+        </p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">02</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">12</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">45</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">30</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-title">Need immediate assistance?</div>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>arifgoldar602@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9748437602</span>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
+    
