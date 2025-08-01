@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arif Developers | Kolkata</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <style>
         /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         :root {
@@ -31,6 +32,7 @@
             background-color: var(--light);
             color: var(--dark);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* Header Styles */
@@ -126,27 +128,31 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--primary);
+            z-index: 1001;
         }
 
-        /* Hero Section */
+        /* Hero Section - Fixed for Mobile */
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            padding: 0 5%;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 5% 40px;
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(255, 107, 107, 0.05));
             overflow: hidden;
             position: relative;
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 800px;
             z-index: 2;
             animation: fadeInUp 1s ease-out;
+            text-align: center;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
             background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -164,6 +170,9 @@
             color: var(--gray);
             margin-bottom: 2rem;
             line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-btn {
@@ -187,25 +196,22 @@
         }
 
         .hero-image {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40%;
+            width: 100%;
             max-width: 600px;
-            height: 70%;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            animation: float 6s ease-in-out infinite;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 40px auto 0;
+            animation: float 6s ease-in-out infinite;
         }
 
         .hero-image img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             border-radius: 20px;
         }
@@ -259,7 +265,6 @@
 
         .about-text p {
             font-size: 1.1rem;
-            line-height: 1.8;
             margin-bottom: 20px;
             color: #334155;
         }
@@ -546,20 +551,20 @@
 
         @keyframes float {
             0% {
-                transform: translateY(-50%) translateX(0);
+                transform: translateY(0);
             }
             50% {
-                transform: translateY(-53%) translateX(10px);
+                transform: translateY(-15px);
             }
             100% {
-                transform: translateY(-50%) translateX(0);
+                transform: translateY(0);
             }
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Mobile First Approach */
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
             
             .about-content,
@@ -568,14 +573,7 @@
             }
             
             .hero-image {
-                position: relative;
-                width: 100%;
-                height: 400px;
-                margin-top: 50px;
-                right: 0;
-                transform: none;
-                top: 0;
-                animation: none;
+                margin-top: 40px;
             }
         }
 
@@ -586,16 +584,17 @@
             
             nav ul {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 right: -100%;
                 flex-direction: column;
                 background: white;
-                width: 80%;
-                height: calc(100vh - 80px);
+                width: 70%;
+                height: 100vh;
                 align-items: center;
-                padding-top: 50px;
+                padding-top: 100px;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 transition: right 0.4s ease;
+                z-index: 999;
             }
             
             nav ul.active {
@@ -603,15 +602,28 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-image {
+                height: 400px;
+                margin-top: 30px;
+            }
         }
 
         @media (max-width: 480px) {
+            .hero {
+                padding: 100px 5% 40px;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -623,6 +635,36 @@
             .section-title h2 {
                 font-size: 1.8rem;
             }
+            
+            .logo {
+                height: 40px;
+                width: 40px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile Menu Close Button */
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.8rem;
+            color: var(--primary);
+            display: none;
+            cursor: pointer;
+        }
+
+        nav ul.active .close-btn {
+            display: block;
         }
     </style>
 </head>
@@ -631,7 +673,7 @@
     <header id="header">
         <div class="logo-container">
             <div class="logo">
-                <img src="images/logo.png" alt="Company Logo">
+                <img src="images/logo.png" alt="Portfolio Logo">
             </div>
             <div class="logo-text">Arif Developers</div>
         </div>
@@ -640,6 +682,7 @@
                 <i class="fas fa-bars"></i>
             </div>
             <ul>
+                <li class="close-btn"><i class="fas fa-times"></i></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -648,11 +691,11 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Fixed for Mobile -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1><span>Hello, I'm Arif Goldar</span>Creative Web Developer</h1>
-            <p>Hello</p>
+            <p>I build immersive and beautiful web experiences through carefully crafted code and user-centric design. Let's create something amazing together!</p>
             <a href="#portfolio" class="cta-btn">View My Work</a>
         </div>
         <div class="hero-image">
@@ -732,48 +775,6 @@
                         <div class="tag">React Native</div>
                         <div class="tag">GraphQL</div>
                         <div class="tag">D3.js</div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1011&q=80" alt="Finance Dashboard">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Personal Finance Manager</h3>
-                    <p>A secure financial dashboard for tracking expenses, investments, and budgeting goals.</p>
-                    <div class="portfolio-tags">
-                        <div class="tag">Angular</div>
-                        <div class="tag">TypeScript</div>
-                        <div class="tag">Express</div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Task Management">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Productivity Suite</h3>
-                    <p>A Kanban-style task management system with team collaboration features and real-time updates.</p>
-                    <div class="portfolio-tags">
-                        <div class="tag">Next.js</div>
-                        <div class="tag">WebSockets</div>
-                        <div class="tag">PostgreSQL</div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Restaurant Booking">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Restaurant Reservation System</h3>
-                    <p>An intuitive platform for customers to discover, book, and review local restaurants.</p>
-                    <div class="portfolio-tags">
-                        <div class="tag">React</div>
-                        <div class="tag">Redux</div>
-                        <div class="tag">MongoDB</div>
                     </div>
                 </div>
             </div>
@@ -867,16 +868,24 @@
 
         // Mobile menu toggle
         const menuBtn = document.querySelector('.menu-btn');
+        const closeBtn = document.querySelector('.close-btn');
         const navMenu = document.querySelector('nav ul');
         
         menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            navMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
         });
 
         // Close menu when clicking a link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
 
@@ -902,6 +911,16 @@
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && 
+                !e.target.closest('nav ul') && 
+                !e.target.closest('.menu-btn')) {
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
