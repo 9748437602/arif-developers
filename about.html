@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Arif Developers</title>
+    <title>Our Services | Arif Developers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <style>
@@ -131,8 +131,8 @@
             z-index: 1001;
         }
 
-        /* Hero Section for About Page */
-        .about-hero {
+        /* Hero Section */
+        .services-hero {
             min-height: 70vh;
             display: flex;
             align-items: center;
@@ -142,15 +142,34 @@
             overflow: hidden;
         }
 
-        .about-hero-content {
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .services-hero-content {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 60px;
             z-index: 2;
             position: relative;
         }
 
-        .about-hero h1 {
+        .hero-text {
+            flex: 1;
+        }
+
+        .services-hero h1 {
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -160,17 +179,52 @@
             color: transparent;
         }
 
-        .about-hero p {
+        .services-hero p {
             font-size: 1.3rem;
             color: var(--gray);
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            margin-bottom: 2rem;
             line-height: 1.8;
         }
 
-        /* Section Styles */
-        section {
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Services Section */
+        .services-section {
             padding: 100px 5%;
+            background: white;
         }
 
         .section-title {
@@ -198,217 +252,278 @@
             border-radius: 2px;
         }
 
-        /* About Content */
-        .about-content {
+        .services-tabs {
             display: flex;
-            gap: 50px;
-            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #334155;
-            line-height: 1.8;
-        }
-
-        .values-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .value-card {
-            flex: 1 1 300px;
+        .service-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--primary);
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .value-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .value-card p {
-            color: var(--gray);
-        }
-
-        .about-image {
-            flex: 1;
-            height: 500px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
+        }
+
+        .service-icon {
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3.5rem;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+            position: relative;
             overflow: hidden;
         }
 
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Team Section */
-        .team-section {
-            background: linear-gradient(to bottom, rgba(241, 245, 249, 0.8), rgba(241, 245, 249, 0.5));
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-member {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
+        .service-content {
+            padding: 30px;
             text-align: center;
         }
 
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .member-img {
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .team-member:hover .member-img img {
-            transform: scale(1.05);
-        }
-
-        .member-info {
-            padding: 25px;
-        }
-
-        .member-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: var(--dark);
         }
 
-        .member-info p {
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+            color: #334155;
+        }
+
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
             color: var(--primary);
+        }
+
+        .service-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
         }
 
-        .social-links {
+        .service-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, rgba(241, 245, 249, 0.8), rgba(241, 245, 249, 0.5));
+        }
+
+        .process-steps {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
         }
 
-        .social-icon {
-            width: 40px;
-            height: 40px;
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background: rgba(37, 99, 235, 0.2);
+            z-index: 0;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
             border-radius: 50%;
-            background: rgba(37, 99, 235, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            color: var(--primary);
-            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
         }
 
-        .social-icon:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
         }
 
-        /* Stats Section */
-        .stats-section {
+        .step p {
+            color: var(--gray);
+            max-width: 250px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: rgba(37, 99, 235, 0.1);
+            z-index: 0;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .rating {
+            color: #ffc107;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #334155;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             text-align: center;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            padding: 30px;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ffd166, #ff6b6b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .stat-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 100px 5%;
-            background: linear-gradient(to right, rgba(37, 99, 235, 0.05), rgba(255, 107, 107, 0.05));
-        }
-
-        .cta-content {
+        .cta-container {
             max-width: 800px;
             margin: 0 auto;
         }
@@ -416,29 +531,25 @@
         .cta-section h2 {
             font-size: 2.8rem;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
         .cta-section p {
             font-size: 1.2rem;
-            color: var(--gray);
             margin-bottom: 40px;
             line-height: 1.8;
+            opacity: 0.9;
         }
 
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: white;
+            background: white;
+            color: var(--primary);
             padding: 15px 40px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.2rem;
-            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -446,7 +557,9 @@
 
         .cta-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: var(--accent);
+            color: white;
         }
 
         /* Footer */
@@ -457,89 +570,27 @@
             text-align: center;
         }
 
-        .footer-content {
+        .social-links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            text-align: left;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        .footer-column {
-            flex: 1 1 250px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .social-icon {
             width: 50px;
-            height: 3px;
-            background: var(--primary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .contact-info {
-            color: var(--gray);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .contact-info i {
-            color: var(--primary);
-            margin-top: 5px;
-        }
-
-        .social-links-footer {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icon-footer {
-            width: 45px;
-            height: 45px;
+            height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: white;
             transition: all 0.3s ease;
         }
 
-        .social-icon-footer:hover {
+        .social-icon:hover {
             background: var(--primary);
             transform: translateY(-5px);
         }
@@ -552,17 +603,22 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .about-content {
+            .services-hero-content {
                 flex-direction: column;
+                text-align: center;
             }
             
-            .about-image {
-                width: 100%;
-                margin-top: 30px;
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 50px;
+            }
+            
+            .process-steps::before {
+                display: none;
             }
         }
 
@@ -590,29 +646,21 @@
                 right: 0;
             }
             
-            .about-hero h1 {
+            .services-hero h1 {
                 font-size: 2.3rem;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
-            
-            .about-hero p {
-                font-size: 1.1rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
         }
 
         @media (max-width: 480px) {
-            .about-hero {
+            .services-hero {
                 padding: 100px 5% 40px;
             }
             
-            .about-hero h1 {
+            .services-hero h1 {
                 font-size: 2rem;
             }
             
@@ -629,12 +677,9 @@
                 width: 40px;
             }
             
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            .stat-text {
-                font-size: 1.1rem;
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
             }
         }
 
@@ -669,7 +714,7 @@
             <ul>
                 <li class="close-btn"><i class="fas fa-times"></i></li>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#Our-Services">Our Services</a></li>
+                <li><a href="#services">Our Services</a></li>
                 <li><a href="index.html#Galary">Galary</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="about.html">About</a></li>
@@ -679,195 +724,281 @@
         </nav>
     </header>
 
-    <section class="about-hero">
-        <div class="about-hero-content">
-            <h1>About Arif Developers</h1>
-            <p>Your trusted partner in fintech solutions and digital innovation. We're dedicated to providing cutting-edge services that empower businesses and individuals in the digital economy.</p>
-        </div>
-    </section>
-
-    <section id="our-story">
-        <div class="section-title">
-            <h2>Our Story</h2>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>From Vision to Reality</h3>
-                <p>Founded in 2020, Arif Developers began as a small team of passionate fintech enthusiasts in Kolkata. Our mission was simple: to make digital financial services accessible, secure, and easy to use for everyone.</p>
-                <p>What started as a dream has now grown into a thriving organization with a diverse portfolio of services, including AePs, money transfer, IRCTC booking, flight tickets, mobile recharges, and fintech product sales.</p>
-                <p>Today, we partner with leading companies in the industry and serve thousands of satisfied customers across India. Our journey is a testament to our commitment to innovation, integrity, and customer satisfaction.</p>
+    <section class="services-hero">
+        <div class="services-hero-content">
+            <div class="hero-text">
+                <h1>Premium Fintech Solutions</h1>
+                <p>Arif Developers offers cutting-edge financial technology services to empower your business. Our secure, reliable, and innovative solutions help you grow in the digital economy.</p>
                 
-                <div class="values-container">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h4>Innovation</h4>
-                        <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions.</p>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">15K+</div>
+                        <div class="stat-text">Happy Clients</div>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Security</h4>
-                        <p>Your transactions and data are protected with bank-level security measures.</p>
+                    <div class="stat-box">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-text">Services</div>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>Customer Focus</h4>
-                        <p>We put our customers at the heart of everything we do, ensuring exceptional service.</p>
+                    <div class="stat-box">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-text">Satisfaction</div>
                     </div>
                 </div>
             </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Arif Developers Office">
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fintech Solutions">
             </div>
         </div>
     </section>
 
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">5+</div>
-                <div class="stat-text">Years of Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-text">Team Members</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15K+</div>
-                <div class="stat-text">Happy Clients</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">25+</div>
-                <div class="stat-text">Services Offered</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="team-section">
+    <section id="services" class="services-section">
         <div class="section-title">
-            <h2>Meet Our Leadership</h2>
+            <h2>Our Services</h2>
+            <p>Secure, reliable, and innovative financial solutions</p>
         </div>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="member-img">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Arif Hussain">
+        
+        <div class="services-tabs">
+            <button class="tab-btn active">All Services</button>
+            <button class="tab-btn">Payment Solutions</button>
+            <button class="tab-btn">Banking Services</button>
+            <button class="tab-btn">Digital Solutions</button>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-money-bill-wave"></i>
                 </div>
-                <div class="member-info">
-                    <h3>Arif Hussain</h3>
-                    <p>Founder & CEO</p>
-                    <p>With over 8 years in fintech, Arif leads our vision and strategy.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <div class="service-content">
+                    <h3>AePs Services</h3>
+                    <p>Secure and reliable Aadhaar Enabled Payment System services for seamless banking transactions.</p>
+                    <ul class="service-features">
+                        <li>Cash withdrawal with Aadhaar authentication</li>
+                        <li>Balance inquiry and mini statements</li>
+                        <li>Fund transfer between accounts</li>
+                        <li>BHIM Aadhaar Pay for merchants</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Money Transfer</h3>
+                    <p>Instant money transfer services across India with competitive rates and high security.</p>
+                    <ul class="service-features">
+                        <li>Domestic money transfer (DMT)</li>
+                        <li>International remittance services</li>
+                        <li>IMPS, NEFT & RTGS transfers</li>
+                        <li>UPI-based instant transfers</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-train"></i>
+                </div>
+                <div class="service-content">
+                    <h3>IRCTC Ticket Booking</h3>
+                    <p>Easy and hassle-free railway ticket booking with real-time availability and confirmation.</p>
+                    <ul class="service-features">
+                        <li>Book train tickets across India</li>
+                        <li>PNR status and seat availability</li>
+                        <li>Cancel and refund management</li>
+                        <li>Tourist and tatkal booking</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Flight Ticket Booking</h3>
+                    <p>Book domestic and international flights with the best deals and multiple payment options.</p>
+                    <ul class="service-features">
+                        <li>Search and compare flight prices</li>
+                        <li>One-way, round-trip & multi-city</li>
+                        <li>Seat selection and meal options</li>
+                        <li>Flight status and schedule</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Mobile Recharge</h3>
+                    <p>Instant prepaid mobile recharge and postpaid bill payment for all operators.</p>
+                    <ul class="service-features">
+                        <li>Prepaid mobile recharge</li>
+                        <li>DTH recharge and bill payment</li>
+                        <li>Data card and broadband recharge</li>
+                        <li>Postpaid mobile bill payment</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Merchant Onboarding</h3>
+                    <p>Comprehensive solutions for merchant onboarding with POS terminals and payment gateways.</p>
+                    <ul class="service-features">
+                        <li>POS machine installation</li>
+                        <li>QR code payment solutions</li>
+                        <li>Payment gateway integration</li>
+                        <li>Business loans and financing</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process-section">
+        <div class="section-title">
+            <h2>How It Works</h2>
+            <p>Simple, fast, and secure process</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Sign Up</h3>
+                <p>Register your account with basic details and complete KYC verification</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Choose Service</h3>
+                <p>Select from our wide range of fintech services that suit your needs</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Start Earning</h3>
+                <p>Begin offering services to customers and earn commissions</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Grow Business</h3>
+                <p>Access business insights and tools to expand your customer base</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>What our clients say about our services</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Arif Developers transformed our small shop into a digital payment hub. Their AePS services have increased our customer base by 40% in just 3 months."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Raj Sharma">
+                        </div>
+                        <div class="author-info">
+                            <h4>Raj Sharma</h4>
+                            <p>Shop Owner, Kolkata</p>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="team-member">
-                <div class="member-img">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Rahul Sharma">
-                </div>
-                <div class="member-info">
-                    <h3>Rahul Sharma</h3>
-                    <p>Technical Director</p>
-                    <p>Tech expert with 10+ years experience in digital solutions.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"The money transfer service is incredibly fast and reliable. I've been using it to send money to my family in Bihar and never faced any issues."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Singh">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Singh</h4>
+                            <p>Regular Customer</p>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="team-member">
-                <div class="member-img">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Priya Patel">
-                </div>
-                <div class="member-info">
-                    <h3>Priya Patel</h3>
-                    <p>Operations Head</p>
-                    <p>Ensures seamless service delivery and customer satisfaction.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"As a travel agent, the IRCTC and flight booking services have simplified my operations. The commission structure is the best in the industry."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Amit Patel">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amit Patel</h4>
+                            <p>Travel Agency Owner</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Join thousands of satisfied clients who trust Arif Developers for their fintech solutions. Whether you need payment services, merchant onboarding, or custom development, we have the expertise to help you succeed.</p>
-            <a href="contact.html" class="cta-btn">Get in Touch</a>
+        <div class="cta-container">
+            <h2>Ready to Grow Your Business?</h2>
+            <p>Join thousands of satisfied partners who trust Arif Developers for their fintech solutions. Register today and start offering premium services to your customers.</p>
+            <a href="contact.html" class="cta-btn">Get Started Now</a>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>About Us</h3>
-                <p>Arif Developers is a leading fintech solution provider based in Kolkata, offering innovative and secure financial services to businesses and individuals across India.</p>
-                <div class="social-links-footer">
-                    <a href="#" class="social-icon-footer"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-icon-footer"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon-footer"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon-footer"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#Our-Services">Services</a></li>
-                    <li><a href="index.html#Galary">Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Our Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#">AePs Services</a></li>
-                    <li><a href="#">Money Transfer</a></li>
-                    <li><a href="#">IRCTC Booking</a></li>
-                    <li><a href="#">Flight Tickets</a></li>
-                    <li><a href="#">Mobile Recharge</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact Info</h3>
-                <div class="contact-info">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>123 Tech Park, Kolkata, West Bengal 700001</span>
-                </div>
-                <div class="contact-info">
-                    <i class="fas fa-phone"></i>
-                    <span>+91 98765 43210</span>
-                </div>
-                <div class="contact-info">
-                    <i class="fas fa-envelope"></i>
-                    <span>info@arifdevelopers.com</span>
-                </div>
-                <div class="contact-info">
-                    <i class="fas fa-clock"></i>
-                    <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
-                </div>
-            </div>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@RearPe.Services" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/rearpe.services" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/rearpe.services" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
-        
         <div class="copyright">
-            <p>&copy; 2023 Arif Developers. All rights reserved.</p>
+            <p>&copy; 2023 Arif Developers ❤️</span>. All rights reserved.</p>
         </div>
     </footer>
 
@@ -915,30 +1046,35 @@
             }
         });
 
-        // Simple animation for stats
-        const statsSection = document.querySelector('.stats-section');
-        const statNumbers = document.querySelectorAll('.stat-number');
+        // Service card animations
+        const serviceCards = document.querySelectorAll('.service-card');
         
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    statNumbers.forEach((number, index) => {
-                        setTimeout(() => {
-                            number.style.opacity = 1;
-                            number.style.transform = 'translateY(0)';
-                        }, index * 200);
-                    });
+                    setTimeout(() => {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
         
-        observer.observe(statsSection);
+        serviceCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
         
-        // Initialize stat numbers
-        statNumbers.forEach(number => {
-            number.style.opacity = 0;
-            number.style.transform = 'translateY(20px)';
-            number.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
         });
     </script>
 </body>
