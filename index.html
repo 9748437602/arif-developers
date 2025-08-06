@@ -713,6 +713,7 @@
  <div class="partner-slider">
   <div class="gradient-overlay gradient-left"></div>
   <div class="gradient-overlay gradient-right"></div>
+ 
   
   <div class="partner-track">
     <!-- First set of logos -->
@@ -720,25 +721,25 @@
       <img src="https://cdn.worldvectorlogo.com/logos/paytm-1.svg" alt="Paytm">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/bharatpe-1.svg" alt="BharatPe">
+      <img src="images/bharatpemerchant.png" alt="BharatPe">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/google-pay.svg" alt="Google Pay">
+      <img src="images/googlepaymerchant.png" alt="Google Pay">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/amazon-pay.svg" alt="Amazon Pay">
+      <img src="images/amazonpay.png" alt="Amazon Pay">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/tide-1.svg" alt="Tide Business">
+      <img src="images/tide.png" alt="Tide Business">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/angelone.svg" alt="Angel One">
+      <img src="images/angelone.png" alt="Angel One">
     </div>
     <div class="partner-logo">
       <img src="https://cdn.worldvectorlogo.com/logos/phonepe-1.svg" alt="PhonePe">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/airtel-3.svg" alt="Airtel">
+      <img src="images/airtelmerchant.png" alt="Airtel">
     </div>
     <div class="partner-logo">
       <img src="https://cdn.worldvectorlogo.com/logos/stripe-4.svg" alt="Stripe">
@@ -752,25 +753,25 @@
       <img src="https://cdn.worldvectorlogo.com/logos/paytm-1.svg" alt="Paytm">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/bharatpe-1.svg" alt="BharatPe">
+      <img src="images/bharatpemerchant.png" alt="BharatPe">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/google-pay.svg" alt="Google Pay">
+      <img src="images/googlepaymerchant.png" alt="Google Pay">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/amazon-pay.svg" alt="Amazon Pay">
+      <img src="images/amazonpay.png" alt="Amazon Pay">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/tide-1.svg" alt="Tide Business">
+      <img src="images/tide.png" alt="Tide Business">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/angelone.svg" alt="Angel One">
+      <img src="images/angelone.png" alt="Angel One">
     </div>
     <div class="partner-logo">
       <img src="https://cdn.worldvectorlogo.com/logos/phonepe-1.svg" alt="PhonePe">
     </div>
     <div class="partner-logo">
-      <img src="https://cdn.worldvectorlogo.com/logos/airtel-3.svg" alt="Airtel">
+      <img src="images/airtelmerchant.png" alt="Airtel">
     </div>
     <div class="partner-logo">
       <img src="https://cdn.worldvectorlogo.com/logos/stripe-4.svg" alt="Stripe">
@@ -839,25 +840,17 @@
   }
 
   .partner-logo:hover {
-    transform: translateY(-8px) rotate(2deg);
+    transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
     z-index: 10;
-    border-color: #e1e8f0;
   }
 
   .partner-logo img {
     max-width: 100%;
     max-height: 60px;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.85;
+    opacity: 1; /* Always fully visible */
     transition: all 0.4s ease;
-  }
-
-  .partner-logo:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.1);
   }
 
   @keyframes scroll-left {
@@ -871,38 +864,30 @@
 
   @media (max-width: 768px) {
     .partner-logo {
-      width: 150px;
-      height: 85px;
-      padding: 15px;
+      width: 120px;
+      height: 70px;
+      padding: 10px;
+      margin: 0 5px;
     }
     
     .gradient-overlay {
-      width: 70px;
+      width: 50px;
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 380px) {
     .partner-logo {
-      width: 130px;
-      height: 75px;
+      width: 80px;
+      height: 45px;
+    }
+    
+    .partner-slider {
+      padding: 15px 0;
     }
   }
 </style>
 
 <script>
-  // Enhanced logo hover effects
-  document.querySelectorAll('.partner-logo').forEach(logo => {
-    logo.addEventListener('mouseenter', () => {
-      logo.style.transform = 'translateY(-8px) rotate(2deg)';
-      logo.style.zIndex = '10';
-    });
-    
-    logo.addEventListener('mouseleave', () => {
-      logo.style.transform = 'translateY(0) rotate(0)';
-      logo.style.zIndex = '1';
-    });
-  });
-  
   // Touch support for mobile devices
   let touchEnabled = 'ontouchstart' in window;
   
@@ -922,7 +907,6 @@
     });
   }
 </script>
-
 <!------------------------------------ UOR PARTNERS - END ---------------------------------->
 <!--------------------------------- Apply Now - Buttion Start ------------------------------>
 
@@ -932,8 +916,8 @@
 </button>
 <!---------------------------------- Apply Now - Buttion End ------------------------------->
 <!----------------------------------- Available Job - Start -------------------------------->    
-
-<h2 style="text-align:center;">Available Job</h2>
+  
+  <h2 style="text-align:center;">Available Job</h2>
 <div class="partner-slider">
   <div class="gradient-overlay gradient-left"></div>
   <div class="gradient-overlay gradient-right"></div>
@@ -1063,25 +1047,17 @@
   }
 
   .partner-logo:hover {
-    transform: translateY(-8px) rotate(2deg);
+    transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
     z-index: 10;
-    border-color: #e1e8f0;
   }
 
   .partner-logo img {
-    max-width: 90%;
-    max-height: 46px;
+    max-width: 100%;
+    max-height: 60px;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.85;
+    opacity: 1; /* Always fully visible */
     transition: all 0.4s ease;
-  }
-
-  .partner-logo:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.1);
   }
 
   @keyframes scroll-left {
@@ -1095,43 +1071,30 @@
 
   @media (max-width: 768px) {
     .partner-logo {
-      width: 120px; /* Reduced from 150px */
-      height: 70px; /* Reduced from 85px */
-      padding: 10px; /* Reduced from 15px */
-      margin: 0 5px; /* Reduced margin */
+      width: 120px;
+      height: 70px;
+      padding: 10px;
+      margin: 0 5px;
     }
     
     .gradient-overlay {
-      width: 50px; /* Reduced from 70px */
+      width: 50px;
     }
   }
 
   @media (max-width: 480px) {
     .partner-logo {
-      width: 100px; /* Reduced from 130px */
-      height: 60px; /* Reduced from 75px */
+      width: 100px;
+      height: 60px;
     }
     
     .partner-slider {
-      padding: 15px 0; /* Reduced padding */
+      padding: 15px 0;
     }
   }
 </style>
 
 <script>
-  // Enhanced logo hover effects
-  document.querySelectorAll('.partner-logo').forEach(logo => {
-    logo.addEventListener('mouseenter', () => {
-      logo.style.transform = 'translateY(-8px) rotate(2deg)';
-      logo.style.zIndex = '10';
-    });
-    
-    logo.addEventListener('mouseleave', () => {
-      logo.style.transform = 'translateY(0) rotate(0)';
-      logo.style.zIndex = '1';
-    });
-  });
-  
   // Touch support for mobile devices
   let touchEnabled = 'ontouchstart' in window;
   
